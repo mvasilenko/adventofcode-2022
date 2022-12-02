@@ -20,7 +20,6 @@ def main():
         "C 6": "X", "C 0": "Y", "C 3": "Z"
     }
 
-
     score = 0
     for line in data:
         item, outcome = line.split(" ")
@@ -29,7 +28,6 @@ def main():
         item = map_outcome_items[f"{item} {outcom_score}"]
         score += map_items[item]
     print(score)
-
 
 
 if __name__ == "__main__":
