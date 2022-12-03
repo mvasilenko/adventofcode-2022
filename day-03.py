@@ -18,13 +18,10 @@ def main():
     result = 0
     for line in data:
         pivot = len(line) // 2
-        r2map = defaultdict(int)
-        r1_items = line[:pivot]
-        r2_items = line[pivot:]
-        for c in r2_items:
-            if c in r1_items and not c in r2map:
-                r2map[c] += 1
-                result += prio_map[c]
+        s1 = set(line[:pivot])
+        s2 = set(line[pivot:])
+        common = ''.join(s1 & s2)
+        result += prio_map[common]
     print(result)
 
     i, result = 0, 0
