@@ -16,17 +16,17 @@ def head_move(head_pos, direction):
 def tail_move(head_pos, tail_pos):
     dx = head_pos[0] - tail_pos[0]
     dy = head_pos[1] - tail_pos[1]
-    if abs(dx) <=1 and abs(dy) <= 1:
-        dx=0
-        dy=0
+    if abs(dx) <= 1 and abs(dy) <= 1:
+        dx = 0
+        dy = 0
     else:
-        if abs(dx)>=2:
-            if dx>0:
+        if abs(dx) >= 2:
+            if dx > 0:
                 dx = 1
             else:
                 dx = -1
-        if abs(dy)>=2:
-            if dy>0:
+        if abs(dy) >= 2:
+            if dy > 0:
                 dy = 1
             else:
                 dy = -1
@@ -38,8 +38,8 @@ def tail_move(head_pos, tail_pos):
 
 def part1(movements):
     visited = set()
-    head_pos = (0,0)
-    tail_pos = (0,0)
+    head_pos = (0, 0)
+    tail_pos = (0, 0)
     for direction, steps in movements:
         for _ in range(steps):
             head_pos = head_move(head_pos, direction)
@@ -48,11 +48,12 @@ def part1(movements):
     print(visited)
     print(len(visited))
 
+
 def part2(movements):
-    rope = [(0,0)]* 10
+    rope = [(0, 0)] * 10
     visited = set()
-    head_pos = (0,0)
-    tail_pos = (0,0)
+    head_pos = (0, 0)
+    tail_pos = (0, 0)
     for direction, steps in movements:
         for _ in range(steps):
             rope2 = [head_move(rope[0], direction)]
@@ -67,6 +68,7 @@ def part2(movements):
 def parse(line):
     array = line.split(' ')
     return (array[0], int(array[1]))
+
 
 if __name__ == "__main__":
     with open("input-day-09.txt", "r") as f:

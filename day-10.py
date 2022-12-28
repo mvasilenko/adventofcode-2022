@@ -7,6 +7,7 @@ part2_answer = """
 ####.#..#..##..#....###...##..#....####.
 """
 
+
 def parse(line):
     if line == "noop":
         return ("noop", 0)
@@ -15,10 +16,8 @@ def parse(line):
 
 
 def draw(value):
-    var = int('111',2)
+    var = int('111', 2)
     print(bin(var << value))
-
-
 
 
 def part1(data):
@@ -28,7 +27,7 @@ def part1(data):
 
     def add_cycle():
         nonlocal cycle, result
-        cycle+=1
+        cycle += 1
         if (cycle-20) % 40 == 0:
             result += cycle * x
 
@@ -45,7 +44,7 @@ def part1(data):
     print(result)
 
 
-def part2(data): # ZKJFBJFZ
+def part2(data):  # ZKJFBJFZ
     x = 1
     result = 0
     cycle = 0
@@ -61,13 +60,13 @@ def part2(data): # ZKJFBJFZ
         instr, arg = parse(line)
         if instr == "addx":
             draw()
-            cycle+=1
+            cycle += 1
             draw()
-            cycle+=1
+            cycle += 1
             x += arg
         elif instr == "noop":
             draw()
-            cycle+=1
+            cycle += 1
         else:
             raise Exception("Wrong instuction, addx/noop expected")
 
@@ -75,11 +74,10 @@ def part2(data): # ZKJFBJFZ
     return result
 
 
-
 if __name__ == "__main__":
     with open("input-day-10.txt", "r") as f:
-        data=f.read().splitlines()
+        data = f.read().splitlines()
         print(part2_answer)
         print(part2(data))
-        #part1(data)
+        # part1(data)
         assert part2_answer == part2(data)
